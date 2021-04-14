@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 AUTH_USER_MODEL = 'authentication.User'
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
@@ -46,7 +48,8 @@ INSTALLED_APPS = [
     'authentication',
     'expense_app',
     'income_app',
-    'drf_yasg'
+    'drf_yasg',
+    'corsheaders'
 ]
 
 SWAGGER_SETTINGS = {
@@ -62,6 +65,7 @@ SWAGGER_SETTINGS = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
